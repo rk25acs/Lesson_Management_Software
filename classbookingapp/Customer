@@ -1,0 +1,6 @@
+package classbookingapp;
+
+public class Customer{
+    private String customerName;
+    private Int customerID;
+}
