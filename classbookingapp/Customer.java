@@ -2,5 +2,5 @@ package classbookingapp;
 
 public class Customer{
     private String customerName;
-    private Int customerID;
+    private int customerID;
 }
