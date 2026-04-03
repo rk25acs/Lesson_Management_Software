@@ -9,7 +9,7 @@ public class LessonBookingApp {
         Scanner scn = new Scanner(System.in);
 
         System.out.println("WELCOME TO FLC APP!");
-        
+
         while (true) {
             System.out.println("MENU");
             System.out.println("1. Book a class");
@@ -23,6 +23,13 @@ public class LessonBookingApp {
 
             switch(option) {
                 case 1:
+                    System.out.println("Booking a class...");
+
+                    
+
+                    System.out.println("Enter your name:");
+                    String name = scn.next();
+
                     break;
                 case 2:
                     break;
