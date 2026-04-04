@@ -12,7 +12,7 @@ public class LessonBookingApp {
 
         while (true) {
             System.out.println("MENU");
-            System.out.println("1. Book a class");
+            System.out.println("1. Book a lesson");
             System.out.println("2. Change/Cancel a booking");
             System.out.println("3. Attend a lesson");
             System.out.println("4. Monthly report");
@@ -23,12 +23,12 @@ public class LessonBookingApp {
 
             switch(option) {
                 case 1:
-                    System.out.println("Booking a class...");
-
-                    
+                    System.out.println("Booking a lesson...");
 
                     System.out.println("Enter your name:");
+                    
                     String name = scn.next();
+                    
 
                     break;
                 case 2:

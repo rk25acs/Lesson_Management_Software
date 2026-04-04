@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Customer{
     private String customerName;
-    private int customerID;
     private ArrayList<String> BookedLessons = new ArrayList<String>();
 
     public void getCname(){
@@ -12,12 +11,6 @@ public class Customer{
     }
     public void setCname(String name){
         this.customerName = name;
-    }
-    public void getCID(){
-        System.out.println(customerID);
-    }
-    public void setCID(int id){
-        this.customerID = id;
     }
     public void getBookedLessons(){
         System.out.println(BookedLessons);
