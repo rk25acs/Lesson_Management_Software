@@ -28,7 +28,8 @@ public class LessonBookingApp {
                     System.out.println("Enter your name:");
                     
                     String name = scn.next();
-                    
+                    Customer customer = new Customer();
+                    customer.setCname(name);
 
                     break;
                 case 2:

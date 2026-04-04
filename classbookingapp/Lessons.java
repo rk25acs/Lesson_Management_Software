@@ -6,7 +6,7 @@ public class Lessons{
    private String LessonName;
    private Integer week;
    private String Slot;
-   private ArrayList<Integer> Bookings = new ArrayList<Integer>();
+   private ArrayList<Booking> Bookings = new ArrayList<Booking>();
    private float Rating;
    private ArrayList<String> Review = new ArrayList<String>();
    private float price;
@@ -25,14 +25,14 @@ public class Lessons{
       System.out.println(Slot);
       System.out.println(Bookings);
    }
-   public void addBooking(int id){
-      this.Bookings.add(id);
+   public void addBooking(Booking booking){
+      this.Bookings.add(booking);
    }
-   public void removeBooking(int id){
-      this.Bookings.remove(id);
+   public void removeBooking(Booking booking){
+      this.Bookings.remove(booking);
    }
    public boolean checkbookingslots(){
-      if (Bookings.size() == 14){
+      if (Bookings.size() == 4){
          System.out.println("No more slots available for this lesson");
          return false;
       }
