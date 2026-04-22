@@ -1,6 +1,5 @@
 package classbookingapp;
 
-import java.sql.Time;
 import java.util.*;
 
 public class LessonBookingApp {
@@ -12,7 +11,7 @@ public class LessonBookingApp {
         System.out.println("WELCOME TO FLC APP!");
 
         Timetable timetable = new Timetable();
-        
+
 
         while (true) {
             System.out.println("MENU");
@@ -29,9 +28,19 @@ public class LessonBookingApp {
                 case 1:
                     System.out.println("Booking a lesson...");
 
-                    System.out.println("Enter your name:");
+                    System.out.println("Enter your id:");
                     
+                    int id = scn.nextInt();
+                    System.out.println("Enter your name:");
                     String name = scn.next();
+                    if (id == 0){
+                        System.out.println("Invalid ID!");
+                        break;
+                    }
+                    if (name.isEmpty()){
+                        System.out.println("Invalid Name!");
+                        break;
+                    }
                     Customer customer = new Customer();
                     customer.setCname(name);
 

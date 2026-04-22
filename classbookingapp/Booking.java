@@ -1,9 +1,10 @@
 package classbookingapp;
+import java.util.*;
 
 public class Booking {
     private int Bookingid;
     private Lessons lesson;
-    private Customer customer;
+    private List<Customer> customers = new ArrayList<>();
     private String status;
     private static int idCounter = 1;
 
@@ -13,8 +14,8 @@ public class Booking {
     public void getLesson(){
         System.out.println(lesson);
     }
-    public void getCustomer(){
-        System.out.println(customer);
+    public List<Customer> getCustomer(){
+        return customers;
     }
     public String getStatus(){
         return this.status;
@@ -23,9 +24,12 @@ public class Booking {
     public Booking(int id, Lessons lesson, Customer customer){
         this.Bookingid = id;
         this.lesson = lesson;
-        this.customer = customer;
+        this.customers =(customer);
         this.status = "Booked";
 
+    }
+    public void addCustomer(Customer customer){
+        this.customers.add(customer);
     }
 
     //booking a lesson

@@ -4,7 +4,8 @@ import java.util.*;
 public class Lessons{
    private int LessonID;
    private String LessonName;
-   private Integer date;
+   private String Day;
+   private int Week;
    private String Slot;
    private ArrayList<Booking> Bookings = new ArrayList<Booking>();
    private float Rating;
@@ -12,22 +13,36 @@ public class Lessons{
    private float price;
 
    //1.Name, 2. Slot, 3.Attendees, 4. Review, 5. Rating
-   public Lessons(int id, String name, int date, String slot, float price){
+   public Lessons(int id, String name, String day, int week, String slot, float price){
       this.LessonID = id;
       this.LessonName = name;
-      this.date = date;
+      this.Day = day;
+      this.Week = week;
       this.Slot = slot;
       this.price = price;
       this.Bookings = new ArrayList<Booking>();
    }
    public void getLesson(){
       System.out.println(LessonName);
-      System.out.println(date);
+      System.out.println(Day);
+      System.out.println(Week);
       System.out.println(Slot);
       System.out.println(Bookings);
    }
    public void addBooking(Booking booking){
       this.Bookings.add(booking);
+   }
+   public int getId(){
+      return LessonID;
+   }
+   public String getDay(){
+      return Day;
+   }
+   public String getName(){
+      return LessonName;
+   }
+   public String getSlot(){
+      return Slot;
    }
    public void removeBooking(Booking booking){
       this.Bookings.remove(booking);
@@ -45,22 +60,19 @@ public class Lessons{
    public void addRating(float rating){
       this.Rating = rating;
    }
-   public void getRating(){
-      System.out.println(Rating);
+   public float getRating(){
+      return Rating;
    }
-   public void getReview(){
-      System.out.println(Review);
+   public ArrayList<String> getReview(){
+      return Review;
    }
-   public void getPrice(){
-      System.out.println(price);
+   public float getPrice(){
+      return price;
    }
    public void setPrice(float price){
       this.price = price;
    }
-   public void getID(){
-      System.out.println(LessonID);
-   }
-   public void getSlot(){
-      System.out.println(Slot);
+   public int getweek(){
+      return Week;
    }
 }
