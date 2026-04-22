@@ -1,5 +1,6 @@
 package classbookingapp;
 
+import java.sql.Time;
 import java.util.*;
 
 public class LessonBookingApp {
@@ -9,6 +10,9 @@ public class LessonBookingApp {
         Scanner scn = new Scanner(System.in);
 
         System.out.println("WELCOME TO FLC APP!");
+
+        Timetable timetable = new Timetable();
+        
 
         while (true) {
             System.out.println("MENU");

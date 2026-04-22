@@ -4,7 +4,7 @@ import java.util.*;
 public class Lessons{
    private int LessonID;
    private String LessonName;
-   private Integer week;
+   private Integer date;
    private String Slot;
    private ArrayList<Booking> Bookings = new ArrayList<Booking>();
    private float Rating;
@@ -12,16 +12,17 @@ public class Lessons{
    private float price;
 
    //1.Name, 2. Slot, 3.Attendees, 4. Review, 5. Rating
-   public void addLesson(int id, String name, int date, String slot, float price){
+   public Lessons(int id, String name, int date, String slot, float price){
       this.LessonID = id;
       this.LessonName = name;
-      this.week = date;
+      this.date = date;
       this.Slot = slot;
       this.price = price;
+      this.Bookings = new ArrayList<Booking>();
    }
    public void getLesson(){
       System.out.println(LessonName);
-      System.out.println(week);
+      System.out.println(date);
       System.out.println(Slot);
       System.out.println(Bookings);
    }
