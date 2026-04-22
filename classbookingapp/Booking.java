@@ -3,33 +3,51 @@ import java.util.*;
 
 public class Booking {
     private int Bookingid;
-    private Lessons lesson;
-    private List<Customer> customers = new ArrayList<>();
+    private List<Customer> customers = new ArrayList<Customer>();
     private String status;
     private static int idCounter = 1;
+
+    public Booking(int id, Lessons lesson, Customer customer){
+        this.Bookingid = id;
+        this.status = "Booked";
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+    public void addCustomers(Customer customer) {
+        customers.add(customer);
+    }
+
+    public void AddedCustomers(){
+
+        addCustomers(new Customer(idCounter++, "Ash"));
+        addCustomers(new Customer(idCounter++, "Yui"));
+        addCustomers(new Customer(idCounter++, "Naruto"));
+        addCustomers(new Customer(idCounter++, "Deku"));
+        addCustomers(new Customer(idCounter++, "Monica"));
+        addCustomers(new Customer(idCounter++, "Rimuru"));
+        addCustomers(new Customer(idCounter++, "Fran"));
+        addCustomers(new Customer(idCounter++, "Miyamura"));
+        addCustomers(new Customer(idCounter++, "Tomoe"));
+        addCustomers(new Customer(idCounter++, "Rys"));
+        addCustomers(new Customer(idCounter++, "Shoyo"));
+        addCustomers(new Customer(idCounter++, "Shoko"));
+    }
+
+    public List<Customer> getCustomerList() {
+        return customers;
+    }
 
     public void getBookingid(){
         System.out.println(Bookingid);
     }
-    public void getLesson(){
-        System.out.println(lesson);
-    }
+
     public List<Customer> getCustomer(){
         return customers;
     }
     public String getStatus(){
         return this.status;
-    }
-
-    public Booking(int id, Lessons lesson, Customer customer){
-        this.Bookingid = id;
-        this.lesson = lesson;
-        this.customers =(customer);
-        this.status = "Booked";
-
-    }
-    public void addCustomer(Customer customer){
-        this.customers.add(customer);
     }
 
     //booking a lesson

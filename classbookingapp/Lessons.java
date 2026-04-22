@@ -22,13 +22,7 @@ public class Lessons{
       this.price = price;
       this.Bookings = new ArrayList<Booking>();
    }
-   public void getLesson(){
-      System.out.println(LessonName);
-      System.out.println(Day);
-      System.out.println(Week);
-      System.out.println(Slot);
-      System.out.println(Bookings);
-   }
+   
    public void addBooking(Booking booking){
       this.Bookings.add(booking);
    }

@@ -7,7 +7,7 @@ public class Customer{
     private int CustomerID;
     private ArrayList<Booking> BookedLessons = new ArrayList<Booking>();
 
-    public Customer(String name, int id){
+    public Customer(int id, String name){
         this.customerName = name;
         this.CustomerID = id;
     }
