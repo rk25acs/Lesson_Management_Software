@@ -6,6 +6,7 @@ public class Timetable {
     public int id = 1;
     public String[] slot = {"8:00-9:00", "01:00-02:00", "06:00-07:00"};
     public List<Lessons> lessons = new ArrayList<Lessons>();
+    private int currentweek = 5;
 
     public void addLesson(Lessons lesson) {
         lessons.add(lesson);
@@ -106,7 +107,7 @@ public class Timetable {
     public List<Lessons> getLessonsbyDay(String day){
         List<Lessons> lessonsByDay = new ArrayList<>();
         for (Lessons l : lessons) {
-            if (l.getDay().equalsIgnoreCase(day)) {
+            if (l.getDay().equalsIgnoreCase(day) && l.getweek() >= currentweek) {
                 lessonsByDay.add(l);
             }
         }
@@ -115,7 +116,7 @@ public class Timetable {
     public List<Lessons> getLessonsbyName(String name){
         List<Lessons> lessonsByName = new ArrayList<>();
         for (Lessons l : lessons) {
-            if (l.getName().equalsIgnoreCase(name)) {
+            if (l.getName().equalsIgnoreCase(name) && l.getweek() >= currentweek) {
                 lessonsByName.add(l);
             }
         }

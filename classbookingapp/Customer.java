@@ -10,6 +10,7 @@ public class Customer{
     public Customer(int id, String name){
         this.customerName = name;
         this.CustomerID = id;
+        this.BookedLessons = new ArrayList<Booking>();
     }
     public int getCustomerID(){
         return CustomerID;
