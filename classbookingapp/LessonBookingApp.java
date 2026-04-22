@@ -16,6 +16,7 @@ public class LessonBookingApp {
         
         BookingSystem booking = new BookingSystem(timetable);
         booking.AddedCustomers();
+        booking.AddedBookings();
 
 
         while (true) {
@@ -58,9 +59,11 @@ public class LessonBookingApp {
                             break;
                         }
                     }
+
                     System.out.println("Proceeding to booking...");
                     System.out.println("Display lessons by Day or Lesson Type?:");
                     String displayOption = scn.next();
+
                     if (displayOption.equalsIgnoreCase("Day")){
                         String day;
                         do {
@@ -74,8 +77,11 @@ public class LessonBookingApp {
                         }
                     }
                     else if (displayOption.equalsIgnoreCase("Lesson Type")){
-                        System.out.println("Enter the lesson type:");
-                        String lessonType = scn.next();
+                        String lessonType;
+                        do {
+                            System.out.println("Enter the lesson type:");
+                            lessonType = scn.next();
+                        } while (lessonType.isEmpty());
                         for (Lessons lesson : timetable.getLessonsbyName(lessonType)) {
                             System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: " + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: " + lesson.getPrice());
                         }
@@ -83,18 +89,59 @@ public class LessonBookingApp {
                     else {
                         System.out.println("Invalid input!");
                     }
+
                     System.out.println("Enter the Lesson ID:");
                     int lessonId = scn.nextInt();
                     booking.bookLesson(id, lessonId);
 
                     break;
                 case 2:
+                    System.out.println("Changing/Canceling a booking...");
+                    while (true) {
+                        System.out.println("Enter your id:");
+                        id = scn.nextInt();
+
+                        if (id == 0){
+                            System.out.println("Invalid ID!");
+                        }
+                        else if (id > booking.getcounter()){
+                            System.out.println("ID does not exist!");
+                        }
+                        else {
+                            System.out.println("ID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            break;
+                        }
+                    }
+                    booking.getCustomer(id).getBookedLessons().forEach(bookedLesson -> {
+                        System.out.println("Lesson ID: " + bookedLesson.lesson.getId() + ", Lesson Name: " + bookedLesson.lesson.getName() + ", Status: " + bookedLesson.getStatus());
+                    });
+                    System.out.println("Enter the Lesson ID you want to change/cancel:");
+                    int changeLessonId = scn.nextInt();
+                    System.out.println("Do you want to Cancel (C) or Change (CH) the booking?");
+                    String changeOption = scn.next();
+                    if (changeOption.equalsIgnoreCase("C")){
+                        booking.cancelBooking(id, changeLessonId);
+                    }
+                    else if (changeOption.equalsIgnoreCase("CH")){
+                        System.out.println("Enter the new Lesson ID:");
+                        int newLessonId = scn.nextInt();
+                        booking.cancelBooking(id, changeLessonId);
+                        booking.bookLesson(id, newLessonId);
+                    }
+                    else {
+                        System.out.println("Invalid input!");
+                    }
                     break;
                 case 3:
                     break;
                 case 4:
                     break;
                 case 5:
+                    System.out.println("Displaying all lessons...");
+                    for (Lessons lesson : timetable.lessons) {
+                        System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Day: " + lesson.getDay() + ", Week: " + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: " + lesson.getPrice());
+                    }
+
                     break;
                 case 0:
                     scn.close();

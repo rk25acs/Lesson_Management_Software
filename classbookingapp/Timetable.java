@@ -5,6 +5,7 @@ import java.util.*;
 public class Timetable {
     public int id = 1;
     public String[] slot = {"8:00-9:00", "01:00-02:00", "06:00-07:00"};
+    public String[] ltype = {"Yoga", "Zumba", "Pilates", "Aquacise", "Box Fit", "Body Blitz"};
     public List<Lessons> lessons = new ArrayList<Lessons>();
     private int currentweek = 5;
 
@@ -21,87 +22,87 @@ public class Timetable {
 
         //Month 1
         //Week 1
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 1, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 1, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 1, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 1, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 1, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 1, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 2, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 2, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 2, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 1, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 1, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 1, slot[2],10));
 
         //Week 2
 
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 2, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 2, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 2, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 2, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 2, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 2, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 2, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 2, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 2,slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 2, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 2, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 2,slot[2],10));
 
         //Week 3
 
-        addLesson(new Lessons(id++,"Yoga", "Saturday", 3, slot[0], 15));
-        addLesson(new Lessons(id++,"Zumba", "Saturday", 3, slot[1], 20));
-        addLesson(new Lessons(id++,"Pilates", "Saturday", 3, slot[2],15));
+        addLesson(new Lessons(id++,ltype[0], "Saturday", 3, slot[0], 15));
+        addLesson(new Lessons(id++,ltype[1], "Saturday", 3, slot[1], 20));
+        addLesson(new Lessons(id++,ltype[2], "Saturday", 3, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 4, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 4, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 4, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 3, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 3, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 3, slot[2],10));
 
         //Week 4
 
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 4, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 4, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 4, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 4, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 4, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 4, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 4, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 4, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 4, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 4, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 4, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 4, slot[2],10));
 
         //Week 5
 
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 5, slot[0], 15));
-        addLesson(new Lessons(id++, "Box Fit", "Saturday", 5, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Saturday", 5, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 5, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 5, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 5, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 5, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 5, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 5, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 5, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 5, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 5, slot[2],10));
 
         //Month 2
         //Week 1
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 6, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 6, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 6, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 6, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 6, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 6, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 7, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 7, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 7, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 6, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 6, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 6, slot[2],10));
         //Week 2
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 8, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 8, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 8, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 7, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 7, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 7, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 9, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 9, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 9, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 7, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 7, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 7, slot[2],10));
         //Week 3
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 10, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 10, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 10, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 8, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 8, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 8, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 11, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 11, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 11, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 8, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 8, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 8, slot[2],10));
         //Week 4
-        addLesson(new Lessons(id++, "Yoga", "Saturday", 12, slot[0], 15));
-        addLesson(new Lessons(id++, "Zumba", "Saturday", 12, slot[1], 20));
-        addLesson(new Lessons(id++, "Pilates", "Saturday", 12, slot[2],15));
+        addLesson(new Lessons(id++, ltype[0], "Saturday", 9, slot[0], 15));
+        addLesson(new Lessons(id++, ltype[1], "Saturday", 9, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[2], "Saturday", 9, slot[2],15));
 
-        addLesson(new Lessons(id++, "Aquacise", "Sunday", 13, slot[0], 25));
-        addLesson(new Lessons(id++, "Box Fit", "Sunday", 13, slot[1], 20));
-        addLesson(new Lessons(id++, "Body Blitz", "Sunday", 13, slot[2],10));
+        addLesson(new Lessons(id++, ltype[3], "Sunday", 9, slot[0], 25));
+        addLesson(new Lessons(id++, ltype[4], "Sunday", 9, slot[1], 20));
+        addLesson(new Lessons(id++, ltype[5], "Sunday", 9, slot[2],10));
     }
 
     public List<Lessons> getLessonsbyDay(String day){
