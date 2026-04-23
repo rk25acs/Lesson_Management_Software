@@ -1,5 +1,4 @@
 package classbookingapp;
-import java.util.*;
 
 public class Booking {
     private int Bookingid;

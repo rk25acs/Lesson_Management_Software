@@ -38,6 +38,9 @@ public class Lessons{
    public String getSlot(){
       return Slot;
    }
+   public int getAttendees(){
+      return Bookings.size();
+   }
    public void removeBooking(Booking booking){
       this.Bookings.remove(booking);
    }

@@ -12,11 +12,17 @@ public class Timetable {
     public void addLesson(Lessons lesson) {
         lessons.add(lesson);
     }
+    public int getCurrentWeek() {
+        return currentweek;
+    }
     public void removeLesson(Lessons lesson) {
         lessons.remove(lesson);
     }
     public List<Lessons> getLessons() {
         return lessons;
+    }
+    public String[] getlessontypes(){
+        return ltype;
     }
     public void TTData(){
 
