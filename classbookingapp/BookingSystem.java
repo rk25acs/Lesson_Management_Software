@@ -46,22 +46,25 @@ public class BookingSystem {
     }
 
     public void cancelBooking(int cid, int lid){
-        for (Booking booking : bookings) {
-            if (booking.getCustomer().get(0).getCustomerID() == cid && booking.lesson.getId() == lid) {
-                booking.status = "Cancelled";
-                booking.lesson.removeBooking(booking);
-                booking.getCustomer().get(0).removeLesson(booking);
-                System.out.println("Booking cancelled successfully!");
-                return;
-            }
-        }
+        Iterator<Booking> iterator = bookings.iterator();
+        while (iterator.hasNext()) {
+            Booking booking = iterator.next();
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid) {
+                iterator.remove(); // ✅ safe
+                customers.get(cid - 1).removeLesson(booking);
+                booking.getLesson().removeBooking(booking);
+
+        System.out.println("Booking cancelled successfully!");
+        return;
+    }
+}
         System.out.println("Booking not found!");
     }
 
     public void attendLesson(int cid, int lid){
         for (Booking booking : bookings) {
-            if (booking.getCustomer().get(0).getCustomerID() == cid && booking.lesson.getId() == lid) {
-                booking.status = "Attended";
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid) {
+                booking.setStatus("Attended");
                 System.out.println("Lesson attended successfully!");
                 return;
             }
@@ -71,8 +74,8 @@ public class BookingSystem {
 
     public void giveReview(int cid, int lid, String review){
         for (Booking booking : bookings) {
-            if (booking.getCustomer().get(0).getCustomerID() == cid && booking.lesson.getId() == lid && booking.getStatus().equals("Attended")) {
-                booking.lesson.addReview(review);
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && booking.getStatus().equals("Attended")) {
+                booking.getLesson().addReview(review);
                 System.out.println("Review added successfully!");
                 return;
             }
@@ -82,8 +85,8 @@ public class BookingSystem {
 
     public void giveRating(int cid, int lid, float rating){
         for (Booking booking : bookings) {
-            if (booking.getCustomer().get(0).getCustomerID() == cid && booking.lesson.getId() == lid && booking.getStatus().equals("Attended")) {
-                booking.lesson.addRating(rating);
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && booking.getStatus().equals("Attended")) {
+                booking.getLesson().addRating(rating);
                 System.out.println("Rating added successfully!");
                 return;
             }

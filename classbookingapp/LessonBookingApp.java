@@ -123,10 +123,41 @@ public class LessonBookingApp {
                         booking.cancelBooking(id, changeLessonId);
                     }
                     else if (changeOption.equalsIgnoreCase("CH")){
-                        System.out.println("Enter the new Lesson ID:");
-                        int newLessonId = scn.nextInt();
                         booking.cancelBooking(id, changeLessonId);
-                        booking.bookLesson(id, newLessonId);
+                        System.out.println("Display lessons by Day or Lesson Type?:");
+                    String displayOpt = scn.next();
+
+                    if (displayOpt.equalsIgnoreCase("Day")){
+                        String day;
+                        do {
+                            System.out.println("Enter the day:");
+                            day = scn.next();
+                        } while (
+                            !day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
+                        
+                        for (Lessons lesson : timetable.getLessonsbyDay(day)) {
+                            System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: " + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: " + lesson.getPrice());
+                        }
+                    }
+                    else if (displayOpt.equalsIgnoreCase("Lesson Type")){
+                        String lessonType;
+                        do {
+                            System.out.println("Enter the lesson type:");
+                            lessonType = scn.next();
+                        } while (lessonType.isEmpty());
+                        for (Lessons lesson : timetable.getLessonsbyName(lessonType)) {
+                            System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: " + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: " + lesson.getPrice());
+                        }
+                    }
+                    else {
+                        System.out.println("Invalid input!");
+                    }
+
+                    System.out.println("Enter the Lesson ID:");
+                    int lId = scn.nextInt();
+                    booking.bookLesson(id, lId);
+
+                    break;
                     }
                     else {
                         System.out.println("Invalid input!");
