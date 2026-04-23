@@ -1,5 +1,4 @@
-package src.classbookingapp;
-
+package src.main.java.classbookingapp;
 import java.util.*;
 
 public class BookingSystem {

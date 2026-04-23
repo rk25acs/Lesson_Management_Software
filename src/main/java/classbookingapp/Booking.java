@@ -1,4 +1,4 @@
-package src.classbookingapp;
+package src.main.java.classbookingapp;
 
 public class Booking {
     private int Bookingid;
