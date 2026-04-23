@@ -8,7 +8,7 @@ public class Lessons{
    private int Week;
    private String Slot;
    private ArrayList<Booking> Bookings = new ArrayList<Booking>();
-   private float Rating;
+   private List<Float> ratings = new ArrayList<>();
    private ArrayList<String> Review = new ArrayList<String>();
    private float price;
 
@@ -55,10 +55,17 @@ public class Lessons{
       this.Review.add(review);
    }
    public void addRating(float rating){
-      this.Rating = rating;
+      this.ratings.add(rating);
    }
-   public float getRating(){
-      return Rating;
+   public float getAvgRating(){
+      if (ratings.isEmpty()) {
+         return 0;
+      }
+      float sum = 0;
+      for (float rating : ratings) {
+         sum += rating;
+      }
+      return Math.round(sum / ratings.size() * 100f) / 100f;
    }
    public ArrayList<String> getReview(){
       return Review;

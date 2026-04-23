@@ -9,8 +9,6 @@ public class LessonBookingApp {
         Scanner scn = new Scanner(System.in);
         int id;
 
-        System.out.println("WELCOME TO FLC APP!");
-
         Timetable timetable = new Timetable();
         timetable.TTData();
 
@@ -19,15 +17,23 @@ public class LessonBookingApp {
         booking.AddedBookings();
         booking.AttendBookings();
 
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+
+        System.out.println("WELCOME TO FLC APP!");
+
         while (true) {
-            System.out.println("MENU");
+
+            System.out.println("\n");
+            System.out.println(" - MENU - \n");
             System.out.println("1. Book a lesson");
             System.out.println("2. Change/Cancel a booking");
             System.out.println("3. Attend a lesson");
             System.out.println("4. Monthly report");
             System.out.println("5. Monthly champion lesson report");
-            System.out.println("0. Exit");
+            System.out.println("0. Exit\n");
 
+            System.out.print("What would you like to do? : ");
             int option = scn.nextInt();
 
             switch (option) {
@@ -201,29 +207,43 @@ public class LessonBookingApp {
 
                     break;
                 case 4:
-                    System.out.println("Generating report of past 4 weeks...");
+                    System.out.println("Generating report of past 4 weeks...\n");
                     for (Lessons lesson : timetable.getLessons()) {
                         if (lesson.getweek() < timetable.getCurrentWeek()) {
-                            System.out.println("Week " + lesson.getweek() + ",   " + lesson.getDay() + 
-                            ",   " + lesson.getName() + ",   Rating: " + lesson.getRating() + ",   Attendance: " + lesson.getAttendees());
+                            System.out.println("Week " + lesson.getweek() + ",   " + lesson.getDay() +
+                                    ",   " + lesson.getName() + ",   Rating: " + lesson.getAvgRating() +
+                                    ",   Attendance: " + booking.getAttendance(lesson));
                         }
                     }
 
                     break;
                 case 5:
-                    System.out.println("Viewing average ratings for the past 4 weeks...");
-                    float[] ratings = new float[timetable.getlessontypes().length];
-                    float[] attendance = new float[timetable.getlessontypes().length];
-                    for (int i = 0; i < timetable.getlessontypes().length; i++) {
-                        String type = timetable.getlessontypes()[i];
-                        ratings[i] = booking.getAvgRating(timetable, type);
-                        attendance[i] = booking.getAttendance(timetable, type);
-                    }
-                     System.out.println("\n--- Monthly Report ---");
-                    for (int i = 0; i < timetable.getlessontypes().length; i++) {
-                        System.out.println("Lesson Type: " + timetable.getlessontypes()[i] + ", Average Rating: " + ratings[i] + ", Total Attendance: " + attendance[i]);
+                    System.out.println("Viewing Champion Report for the past 4 weeks...\n");
+                    float[] Income = new float[timetable.getlessontypes().length];
+                    int i = 0;
+                    for (String type : timetable.getlessontypes()) {
+                        Income[i] = booking.getTotalIncome(type);
+                        i++;
                     }
 
+                    String[] lessonTypes = timetable.getlessontypes();
+
+                    for (int j = 0; j < lessonTypes.length - 1; j++) {
+                        for (int k = 0; k < lessonTypes.length - j - 1; k++) {
+                            if (Income[k] < Income[k + 1]) {
+                                float tempIncome = Income[k];
+                                Income[k] = Income[k + 1];
+                                Income[k + 1] = tempIncome;
+
+                                String tempType = lessonTypes[k];
+                                lessonTypes[k] = lessonTypes[k + 1];
+                                lessonTypes[k + 1] = tempType;
+                            }
+                        }
+                    }
+                    for (int j = 0; j < lessonTypes.length; j++) {
+                        System.out.println((j + 1) + ". " + lessonTypes[j] + " - Total Income: " + Income[j]);
+                    }
                     break;
                 case 0:
                     scn.close();

@@ -113,36 +113,32 @@ public class BookingSystem {
         System.out.println("Booking not found!");
     }
 
-    public float getAvgRating(Timetable timetable, String lessonType) {
-        float totalRating = 0;
+    public int getAttendance(Lessons lesson) {
         int count = 0;
 
-        for (Lessons lesson : timetable.getLessons()) {
-            if (lesson.getName().equals(lessonType) && lesson.getRating() > 0) {
-                totalRating += lesson.getRating();
+        for (Booking booking : bookings) {
+            if ("Attended".equals(booking.getStatus()) &&
+                    booking.getLesson().getId() == lesson.getId()) {
+
                 count++;
             }
         }
 
-        float avgRating = count > 0 ? totalRating / count : 0;
-        return Math.round(avgRating * 100f) / 100f;
+        return count;
     }
 
-    public int getAttendance(Timetable timetable, String lessonType) {
-        int totalAttendance = 0;
+    public float getTotalIncome(String lessonType) {
+        float totalIncome = 0;
 
-        for (Lessons lesson : timetable.getLessons()) {
-            if (lesson.getName().equals(lessonType)) {
-                for (Booking booking : bookings) {
-                    if (booking.getStatus().equals("Attended") &&
-                            booking.getLesson().getId() == lesson.getId()) {
-                        totalAttendance++;
-                    }
-                }
+        for (Booking booking : bookings) {
+            if ("Attended".equals(booking.getStatus()) &&
+                    booking.getLesson().getName().equals(lessonType)) {
+
+                totalIncome += booking.getLesson().getPrice();
             }
         }
 
-        return totalAttendance;
+        return totalIncome;
     }
 
     public void AddedCustomers() {
