@@ -1,4 +1,4 @@
-package src.main.java.classbookingapp;
+package classbookingapp;
 import java.util.*;
 
 
