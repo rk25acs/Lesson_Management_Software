@@ -1,4 +1,4 @@
-package classbookingapp;
+package src.classbookingapp;
 import java.util.*;
 
 public class Lessons{
