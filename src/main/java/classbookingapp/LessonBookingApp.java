@@ -10,13 +10,18 @@ public class LessonBookingApp {
         int id;
 
         Timetable timetable = new Timetable();
+
+        //Adding Lessons to Timetable
         timetable.TTData();
 
         BookingSystem booking = new BookingSystem(timetable);
+
+        //Adding Customers, booking a few classes and updating the status
         booking.AddedCustomers();
         booking.AddedBookings();
         booking.AttendBookings();
 
+        //Clearing out the terminal
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
@@ -24,6 +29,7 @@ public class LessonBookingApp {
 
         while (true) {
 
+            //Main menu
             System.out.println("\n");
             System.out.println(" - MENU - \n");
             System.out.println("1. Book a lesson");
@@ -38,6 +44,7 @@ public class LessonBookingApp {
 
             switch (option) {
                 case 1:
+                    //Book a Lesson
                     System.out.println("Booking a lesson...");
 
                     while (true) {
@@ -47,9 +54,11 @@ public class LessonBookingApp {
                         if (id == 0) {
                             System.out.println("Invalid ID!");
                         } else if (id > booking.getcounter()) {
+
                             System.out.println("ID does not exist!");
                             System.out.print("New Customer detected! Create new account (Y/N)? ");
                             String choice = scn.next();
+
                             if (choice.equalsIgnoreCase("Y")) {
                                 System.out.print("Please enter your name : ");
                                 String name = scn.next();
@@ -106,6 +115,8 @@ public class LessonBookingApp {
 
                     break;
                 case 2:
+
+                //Change or Cancel a booked Lesson
                     System.out.println("Changing/Canceling a booking...");
                     while (true) {
                         System.out.print("Enter your id: ");
@@ -176,6 +187,8 @@ public class LessonBookingApp {
                     }
                     break;
                 case 3:
+
+                    // Attending a booked Lesson
                     System.out.println("Attending a lesson...");
                     while (true) {
                         System.out.print("Enter your id : ");
@@ -217,6 +230,8 @@ public class LessonBookingApp {
 
                     break;
                 case 4:
+
+                    //Printing out the monthly attendance and rating sheet
                     System.out.println("Generating report of past 4 weeks...\n");
                     for (Lessons lesson : timetable.getLessons()) {
                         if (lesson.getweek() < timetable.getCurrentWeek()) {
@@ -228,6 +243,8 @@ public class LessonBookingApp {
 
                     break;
                 case 5:
+
+                    // Printing out the monthly income report
                     System.out.println("Viewing Champion Report for the past 4 weeks...\n");
                     float[] Income = new float[timetable.getlessontypes().length];
                     int i = 0;
@@ -255,7 +272,8 @@ public class LessonBookingApp {
                         System.out.println((j + 1) + ". " + lessonTypes[j] + " - Total Income: " + Income[j]);
                     }
                     break;
-                case 0:
+                case 0: 
+                    //Exit
                     scn.close();
                     return;
                 default:
