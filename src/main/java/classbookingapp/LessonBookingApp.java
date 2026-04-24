@@ -60,7 +60,7 @@ public class LessonBookingApp {
                                 break;
                             }
                         } else {
-                            System.out.println("ID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
                             break;
                         }
                     }
@@ -116,7 +116,7 @@ public class LessonBookingApp {
                         } else if (id > booking.getcounter()) {
                             System.out.println("ID does not exist!");
                         } else {
-                            System.out.println("ID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
                             break;
                         }
                     }
@@ -186,7 +186,7 @@ public class LessonBookingApp {
                         } else if (id > booking.getcounter()) {
                             System.out.println("ID does not exist!");
                         } else {
-                            System.out.println("ID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!\n");
+                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!\n");
                             break;
                         }
                     }
