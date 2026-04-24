@@ -81,7 +81,7 @@ public class LessonBookingApp {
                     if (displayOption.equalsIgnoreCase("Day")) {
                         String day;
                         do {
-                            System.out.print("Enter the day : ");
+                            System.out.print("Enter the day (Saturday / Sunday) : ");
                             day = scn.next();
                         } while (!day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
 
@@ -149,7 +149,7 @@ public class LessonBookingApp {
                         if (displayOpt.equalsIgnoreCase("Day")) {
                             String day;
                             do {
-                                System.out.print("Enter the day : ");
+                                System.out.print("Enter the day (Saturday / Sunday) : ");
                                 day = scn.next();
                             } while (!day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
 
