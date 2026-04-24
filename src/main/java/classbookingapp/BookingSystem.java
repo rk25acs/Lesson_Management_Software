@@ -77,21 +77,31 @@ public class BookingSystem {
         System.out.println("Booking not found!");
     }
 
-    public void attendLesson(int cid, int lid) {
+    public boolean getifAttended(Booking booking){
+        if (booking.getStatus().equals("Attended")){
+            return true;
+        }
+        return false;
+    }
+    public int attendLesson(int cid, int lid) {
         for (Booking booking : bookings) {
-            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid) {
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && getifAttended(booking) == false) {
                 booking.setStatus("Attended");
                 System.out.println("Lesson attended successfully!");
-                return;
+                return 0;
+            }
+            else if(booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && getifAttended(booking)){
+                System.out.println("Already attended this lesson!");
+                return 1;
             }
         }
         System.out.println("Booking not found!");
+        return 2;
     }
 
     public void giveReview(int cid, int lid, String review) {
         for (Booking booking : bookings) {
-            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid
-                    && booking.getStatus().equals("Attended")) {
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && getifAttended(booking)) {
                 booking.getLesson().addReview(review);
                 System.out.println("Review added successfully!");
                 return;
@@ -102,8 +112,7 @@ public class BookingSystem {
 
     public void giveRating(int cid, int lid, float rating) {
         for (Booking booking : bookings) {
-            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid
-                    && booking.getStatus().equals("Attended")) {
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && getifAttended(booking)) {
                 booking.getLesson().addRating(rating);
                 System.out.println("Rating added successfully!");
                 return;

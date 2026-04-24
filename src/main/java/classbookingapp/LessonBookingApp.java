@@ -41,17 +41,17 @@ public class LessonBookingApp {
                     System.out.println("Booking a lesson...");
 
                     while (true) {
-                        System.out.println("Enter your id:");
+                        System.out.print("Enter your id : ");
                         id = scn.nextInt();
 
                         if (id == 0) {
                             System.out.println("Invalid ID!");
                         } else if (id > booking.getcounter()) {
                             System.out.println("ID does not exist!");
-                            System.out.println("New Customer detected! Create new account (Y/N)?");
+                            System.out.print("New Customer detected! Create new account (Y/N)? ");
                             String choice = scn.next();
                             if (choice.equalsIgnoreCase("Y")) {
-                                System.out.println("Please enter your name:");
+                                System.out.print("Please enter your name : ");
                                 String name = scn.next();
                                 Customer newCustomer = new Customer(booking.getcounter() + 1, name);
                                 booking.addCustomers(newCustomer);
@@ -65,26 +65,30 @@ public class LessonBookingApp {
                         }
                     }
 
-                    System.out.println("Proceeding to booking...");
-                    System.out.println("Display lessons by Day or Lesson Type?:");
+                    System.out.println("\nProceeding to booking...");
+                    System.out.print("Display lessons by Day or Lesson? : ");
                     String displayOption = scn.next();
 
                     if (displayOption.equalsIgnoreCase("Day")) {
                         String day;
                         do {
-                            System.out.println("Enter the day:");
+                            System.out.print("Enter the day : ");
                             day = scn.next();
                         } while (!day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
 
                         for (Lessons lesson : timetable.getLessonsbyDay(day)) {
                             System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: "
-                                    + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: "
+                                    + lesson.getweek() + ", Slot:   " + lesson.getSlot() + ",   Price: "
                                     + lesson.getPrice());
                         }
-                    } else if (displayOption.equalsIgnoreCase("Lesson Type")) {
+                    } else if (displayOption.equalsIgnoreCase("Lesson")) {
                         String lessonType;
                         do {
-                            System.out.println("Enter the lesson type:");
+                            System.out.println("Available lessons : ");
+                            for (String type : timetable.getlessontypes()) {
+                                System.out.print(type + " | ");
+                            }
+                            System.out.print("\nEnter the lesson : ");
                             lessonType = scn.next();
                         } while (lessonType.isEmpty());
                         for (Lessons lesson : timetable.getLessonsbyName(lessonType)) {
@@ -96,7 +100,7 @@ public class LessonBookingApp {
                         System.out.println("Invalid input!");
                     }
 
-                    System.out.println("Enter the Lesson ID:");
+                    System.out.print("Enter the Lesson ID: ");
                     int lessonId = scn.nextInt();
                     booking.bookLesson(id, lessonId);
 
@@ -104,7 +108,7 @@ public class LessonBookingApp {
                 case 2:
                     System.out.println("Changing/Canceling a booking...");
                     while (true) {
-                        System.out.println("Enter your id:");
+                        System.out.print("Enter your id: ");
                         id = scn.nextInt();
 
                         if (id == 0) {
@@ -120,33 +124,37 @@ public class LessonBookingApp {
                         System.out.println("Lesson ID: " + bookedLesson.lesson.getId() + ", Lesson Name: "
                                 + bookedLesson.lesson.getName() + ", Status: " + bookedLesson.getStatus());
                     });
-                    System.out.println("Enter the Lesson ID you want to change/cancel:");
+                    System.out.print("Enter the Lesson ID you want to change/cancel : ");
                     int changeLessonId = scn.nextInt();
-                    System.out.println("Do you want to Cancel (C) or Change (CH) the booking?");
+                    System.out.print("Do you want to Cancel (C) or Change (CH) the booking? ");
                     String changeOption = scn.next();
                     if (changeOption.equalsIgnoreCase("C")) {
                         booking.cancelBooking(id, changeLessonId);
                     } else if (changeOption.equalsIgnoreCase("CH")) {
                         booking.cancelBooking(id, changeLessonId);
-                        System.out.println("Display lessons by Day or Lesson Type?:");
+                        System.out.print("Display lessons by Day or Lesson Type? : ");
                         String displayOpt = scn.next();
 
                         if (displayOpt.equalsIgnoreCase("Day")) {
                             String day;
                             do {
-                                System.out.println("Enter the day:");
+                                System.out.print("Enter the day : ");
                                 day = scn.next();
                             } while (!day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
 
                             for (Lessons lesson : timetable.getLessonsbyDay(day)) {
                                 System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: "
-                                        + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: "
+                                        + lesson.getweek() + ",   Slot: " + lesson.getSlot() + ",   Price: "
                                         + lesson.getPrice());
                             }
-                        } else if (displayOpt.equalsIgnoreCase("Lesson Type")) {
+                        } else if (displayOpt.equalsIgnoreCase("Lesson")) {
                             String lessonType;
                             do {
-                                System.out.println("Enter the lesson type:");
+                                System.out.println("Available lessons : ");
+                                for (String type : timetable.getlessontypes()) {
+                                    System.out.print(type + " | ");
+                                }
+                                System.out.print("Enter the lesson type : ");
                                 lessonType = scn.next();
                             } while (lessonType.isEmpty());
                             for (Lessons lesson : timetable.getLessonsbyName(lessonType)) {
@@ -158,7 +166,7 @@ public class LessonBookingApp {
                             System.out.println("Invalid input!");
                         }
 
-                        System.out.println("Enter the Lesson ID:");
+                        System.out.print("Enter the Lesson ID : ");
                         int lId = scn.nextInt();
                         booking.bookLesson(id, lId);
 
@@ -170,7 +178,7 @@ public class LessonBookingApp {
                 case 3:
                     System.out.println("Attending a lesson...");
                     while (true) {
-                        System.out.println("Enter your id:");
+                        System.out.print("Enter your id : ");
                         id = scn.nextInt();
 
                         if (id == 0) {
@@ -178,7 +186,7 @@ public class LessonBookingApp {
                         } else if (id > booking.getcounter()) {
                             System.out.println("ID does not exist!");
                         } else {
-                            System.out.println("ID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            System.out.println("ID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!\n");
                             break;
                         }
                     }
@@ -186,22 +194,24 @@ public class LessonBookingApp {
                         System.out.println("Lesson ID: " + bookedLesson.lesson.getId() + ", Lesson Name: "
                                 + bookedLesson.lesson.getName() + ", Status: " + bookedLesson.getStatus());
                     });
-                    System.out.println("Enter the Lesson ID you want to attend:");
+                    System.out.print("Enter the Lesson ID you want to attend : ");
                     int attendLessonId = scn.nextInt();
-                    booking.attendLesson(id, attendLessonId);
+                    int result = booking.attendLesson(id, attendLessonId);
 
-                    System.out.println("Enter your review:");
-                    String review = scn.next();
-                    booking.giveReview(id, attendLessonId, review);
+                    if (result == 0) {
+                        System.out.print("Enter your review : ");
+                        String review = scn.next();
+                        booking.giveReview(id, attendLessonId, review);
 
-                    while (true) {
-                        System.out.println("Enter your rating (0.0 - 5.0):");
-                        float rating = scn.nextFloat();
-                        if (rating >= 0.0 && rating <= 5.0) {
-                            booking.giveRating(id, attendLessonId, rating);
-                            break;
-                        } else {
-                            System.out.println("Invalid rating! Rating should be between 0.0 and 5.0.");
+                        while (true) {
+                            System.out.print("Enter your rating (0.0 - 5.0) : ");
+                            float rating = scn.nextFloat();
+                            if (rating >= 0.0 && rating <= 5.0) {
+                                booking.giveRating(id, attendLessonId, rating);
+                                break;
+                            } else {
+                                System.out.println("Invalid rating! Rating should be between 0.0 and 5.0.");
+                            }
                         }
                     }
 
