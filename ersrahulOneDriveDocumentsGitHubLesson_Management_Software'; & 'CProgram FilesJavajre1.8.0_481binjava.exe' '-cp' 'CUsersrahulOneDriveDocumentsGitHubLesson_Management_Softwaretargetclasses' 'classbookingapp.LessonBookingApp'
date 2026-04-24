@@ -1,0 +1,161 @@
+[33mcommit 70fbfa3bbac176b4c27a58b3547a8945c2a02f8c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 03:37:13 2026 +0100
+
+    minor changes #3
+
+[33mcommit f1f2a2c2f7ac5ca83675cdc82936f44c94611ed6[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 02:30:30 2026 +0100
+
+    minor change #2
+
+[33mcommit 32168c2a46d3d0e52652db6e0fdbf4683e84bbfc[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 02:27:27 2026 +0100
+
+    added comments to main
+
+[33mcommit ac3172fd14b38e4c8c5613efd8783b6dbb7be93c[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 02:21:58 2026 +0100
+
+    minor changes added
+
+[33mcommit 864c0099df03e9ab5d4e227417244612beb77fa5[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 01:45:59 2026 +0100
+
+    updated some parts for QOL improvements
+
+[33mcommit b2f6bbaf9a43fd698941beef01dd92954b1e8fbb[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 01:02:23 2026 +0100
+
+    added junit testing
+
+[33mcommit b5f54c067369dea64db1e65a4a87e8e8fd962bb3[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 24 00:02:26 2026 +0100
+
+    final update for mavin
+
+[33mcommit cf722e0bc6aa42dfa6f354fd63a3d6a34e381717[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 23 23:42:01 2026 +0100
+
+    updated folder placement for maven
+
+[33mcommit 9a428dbdc66fad79f56c97afeae38a00f5391555[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 23 23:30:33 2026 +0100
+
+    updated folder arrangement
+
+[33mcommit 4445265a3154c1a7597068fe49bd36b5f56ec0d7[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 23 20:49:01 2026 +0100
+
+    Added code to make monthly reports
+    
+    Co-authored-by: Copilot <copilot@github.com>
+
+[33mcommit 2400e4f7217b2ab433715eefda371da9b4805d35[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 23 20:21:41 2026 +0100
+
+    added some functionality to reports(case 4, 5)
+    
+    Co-authored-by: Copilot <copilot@github.com>
+
+[33mcommit f7d962dfb6a71ef25522de1a150638a8b6328800[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 23 16:18:42 2026 +0100
+
+    updated change/cancel lesson functionality
+    
+    Co-authored-by: Copilot <copilot@github.com>
+
+[33mcommit ada71394df464044df3cc659d4ce20a1649347f5[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 23 00:54:24 2026 +0100
+
+    added bookings and code to book a lesson and change/cancel them
+
+[33mcommit 926140ae8714e322d6b1878e33c6749fa1b4170c[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Wed Apr 22 23:36:10 2026 +0100
+
+    added a booking system and main code
+
+[33mcommit f9ea5ae5820c143a6bd9ee24b2b5905ecac28a7e[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Wed Apr 22 22:30:27 2026 +0100
+
+    Updated Customers constructor and added new customers
+
+[33mcommit af62a3312215c1825a0e2e765ffcb1abbef8438d[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Wed Apr 22 17:33:44 2026 +0100
+
+    updated timetable and added minor changes to lessons class
+
+[33mcommit 56ec0c8f90dfae16678485aa8db7c7e024a03c62[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Wed Apr 22 14:49:18 2026 +0100
+
+    Added Timetable class and addjusted a few other variables and classes
+
+[33mcommit 2ae1866b4e70919545a77211a7ad174e03ba7244[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Sat Apr 4 22:04:10 2026 +0100
+
+    updated all files
+
+[33mcommit 0d00a504f7019c32b5cfc0e37e643117f0c65456[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Sat Apr 4 19:40:09 2026 +0100
+
+    added booking class and updated lessons and customer classes
+
+[33mcommit a1b33448ab4c000e8e6d750dc81525062fd17ba7[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 3 21:41:59 2026 +0100
+
+    updated Lessons ans Customer code
+
+[33mcommit 8a67248a2b89c285f50fb05d30c3eaf975fbb270[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 3 19:07:55 2026 +0100
+
+    minor changes
+
+[33mcommit 413aea115be81e6e7442038adfb3c4718958fa7f[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Apr 3 18:50:26 2026 +0100
+
+    Updated main menu code
+
+[33mcommit 9531c9f43bd192387337fd01acab5961d463c973[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Thu Apr 2 23:32:17 2026 +0100
+
+    Added Lessons class
+
+[33mcommit 72b1d43a8df097279823232c438c732f50c6ebf0[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Mar 27 18:33:32 2026 +0000
+
+    added customer class
+
+[33mcommit b3d68e4925c55d1d4c2ed38f99bf88cd6da7a24f[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Mar 27 18:22:29 2026 +0000
+
+    Added base class
+
+[33mcommit 917e41e48b0ad83b45c5b9c57eb6162bed9ad48d[m
+Author: Rahul Kolupoti <rahulkolupoti@gmail.com>
+Date:   Fri Mar 27 18:07:55 2026 +0000
+
+    Added project requirements

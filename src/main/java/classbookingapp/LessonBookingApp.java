@@ -51,26 +51,10 @@ public class LessonBookingApp {
                         System.out.print("Enter your id : ");
                         id = scn.nextInt();
 
-                        if (id == 0) {
+                        if (id == 0 || id > booking.getcounter()) {
                             System.out.println("Invalid ID!");
-                        } else if (id > booking.getcounter()) {
-
-                            System.out.println("ID does not exist!");
-                            System.out.print("New Customer detected! Create new account (Y/N)? ");
-                            String choice = scn.next();
-
-                            if (choice.equalsIgnoreCase("Y")) {
-                                System.out.print("Please enter your name : ");
-                                String name = scn.next();
-                                Customer newCustomer = new Customer(booking.getcounter() + 1, name);
-                                booking.addCustomers(newCustomer);
-                                System.out.println(
-                                        "Customer added successfully! Your ID is: " + newCustomer.getCustomerID());
-                                break;
-                            }
                         } else {
-                            System.out
-                                    .println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
                             break;
                         }
                     }
