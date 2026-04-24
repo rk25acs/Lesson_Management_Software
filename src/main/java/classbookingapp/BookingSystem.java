@@ -160,7 +160,6 @@ public class BookingSystem {
         bookLesson(1, 1);
         bookLesson(1, 4);
         bookLesson(1, 13);
-        ;
         bookLesson(1, 16);
         bookLesson(1, 25);
         bookLesson(1, 28);

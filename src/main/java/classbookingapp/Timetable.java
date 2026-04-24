@@ -21,6 +21,14 @@ public class Timetable {
     public List<Lessons> getLessons() {
         return lessons;
     }
+    public Lessons getLesson(int lid){
+        for (Lessons lesson : lessons){
+            if (lesson.getId() == lid){
+                return lesson;
+            }
+        }
+        return null;
+    }
     public String[] getlessontypes(){
         return ltype;
     }
