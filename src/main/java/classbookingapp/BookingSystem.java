@@ -61,20 +61,21 @@ public class BookingSystem {
         }
     }
 
-    public void cancelBooking(int cid, int lid) {
+    public int cancelBooking(int cid, int lid) {
         Iterator<Booking> iterator = bookings.iterator();
         while (iterator.hasNext()) {
             Booking booking = iterator.next();
-            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid) {
-                iterator.remove(); // ✅ safe
+            if (booking.getCustomer().getCustomerID() == cid && booking.getLesson().getId() == lid && getifAttended(booking) == false) {
+                iterator.remove(); 
                 customers.get(cid - 1).removeLesson(booking);
                 booking.getLesson().removeBooking(booking);
 
                 System.out.println("Booking cancelled successfully!");
-                return;
+                return 1;
             }
         }
-        System.out.println("Booking not found!");
+        System.out.println("Unable to cancel!");
+        return 0;
     }
 
     public boolean getifAttended(Booking booking){

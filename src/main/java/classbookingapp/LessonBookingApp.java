@@ -11,17 +11,17 @@ public class LessonBookingApp {
 
         Timetable timetable = new Timetable();
 
-        //Adding Lessons to Timetable
+        // Adding Lessons to Timetable
         timetable.TTData();
 
         BookingSystem booking = new BookingSystem(timetable);
 
-        //Adding Customers, booking a few classes and updating the status
+        // Adding Customers, booking a few classes and updating the status
         booking.AddedCustomers();
         booking.AddedBookings();
         booking.AttendBookings();
 
-        //Clearing out the terminal
+        // Clearing out the terminal
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
@@ -29,7 +29,7 @@ public class LessonBookingApp {
 
         while (true) {
 
-            //Main menu
+            // Main menu
             System.out.println("\n");
             System.out.println(" - MENU - \n");
             System.out.println("1. Book a lesson");
@@ -44,7 +44,7 @@ public class LessonBookingApp {
 
             switch (option) {
                 case 1:
-                    //Book a Lesson
+                    // Book a Lesson
                     System.out.println("Booking a lesson...");
 
                     while (true) {
@@ -69,7 +69,8 @@ public class LessonBookingApp {
                                 break;
                             }
                         } else {
-                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            System.out
+                                    .println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
                             break;
                         }
                     }
@@ -116,7 +117,7 @@ public class LessonBookingApp {
                     break;
                 case 2:
 
-                //Change or Cancel a booked Lesson
+                    // Change or Cancel a booked Lesson
                     System.out.println("Changing/Canceling a booking...");
                     while (true) {
                         System.out.print("Enter your id: ");
@@ -127,7 +128,8 @@ public class LessonBookingApp {
                         } else if (id > booking.getcounter()) {
                             System.out.println("ID does not exist!");
                         } else {
-                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
+                            System.out
+                                    .println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!");
                             break;
                         }
                     }
@@ -142,46 +144,51 @@ public class LessonBookingApp {
                     if (changeOption.equalsIgnoreCase("C")) {
                         booking.cancelBooking(id, changeLessonId);
                     } else if (changeOption.equalsIgnoreCase("CH")) {
-                        booking.cancelBooking(id, changeLessonId);
-                        System.out.print("Display lessons by Day or Lesson Type? : ");
-                        String displayOpt = scn.next();
+                        int result = booking.cancelBooking(id, changeLessonId);
 
-                        if (displayOpt.equalsIgnoreCase("Day")) {
-                            String day;
-                            do {
-                                System.out.print("Enter the day (Saturday / Sunday) : ");
-                                day = scn.next();
-                            } while (!day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
+                        if (result == 1) {
+                            System.out.print("Display lessons by Day or Lesson Type? : ");
+                            String displayOpt = scn.next();
 
-                            for (Lessons lesson : timetable.getLessonsbyDay(day)) {
-                                System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: "
-                                        + lesson.getweek() + ",   Slot: " + lesson.getSlot() + ",   Price: "
-                                        + lesson.getPrice());
-                            }
-                        } else if (displayOpt.equalsIgnoreCase("Lesson")) {
-                            String lessonType;
-                            do {
-                                System.out.println("Available lessons : ");
-                                for (String type : timetable.getlessontypes()) {
-                                    System.out.print(type + " | ");
+                            if (displayOpt.equalsIgnoreCase("Day")) {
+                                String day;
+                                do {
+                                    System.out.print("Enter the day (Saturday / Sunday) : ");
+                                    day = scn.next();
+                                } while (!day.equalsIgnoreCase("Saturday") && !day.equalsIgnoreCase("Sunday"));
+
+                                for (Lessons lesson : timetable.getLessonsbyDay(day)) {
+                                    System.out.println(
+                                            "ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: "
+                                                    + lesson.getweek() + ",   Slot: " + lesson.getSlot() + ",   Price: "
+                                                    + lesson.getPrice());
                                 }
-                                System.out.print("Enter the lesson type : ");
-                                lessonType = scn.next();
-                            } while (lessonType.isEmpty());
-                            for (Lessons lesson : timetable.getLessonsbyName(lessonType)) {
-                                System.out.println("ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: "
-                                        + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: "
-                                        + lesson.getPrice());
+                            } else if (displayOpt.equalsIgnoreCase("Lesson")) {
+                                String lessonType;
+                                do {
+                                    System.out.println("Available lessons : ");
+                                    for (String type : timetable.getlessontypes()) {
+                                        System.out.print(type + " | ");
+                                    }
+                                    System.out.print("Enter the lesson type : ");
+                                    lessonType = scn.next();
+                                } while (lessonType.isEmpty());
+                                for (Lessons lesson : timetable.getLessonsbyName(lessonType)) {
+                                    System.out.println(
+                                            "ID: " + lesson.getId() + ", Name: " + lesson.getName() + ", Week: "
+                                                    + lesson.getweek() + ", Slot: " + lesson.getSlot() + ", Price: "
+                                                    + lesson.getPrice());
+                                }
+                            } else {
+                                System.out.println("Invalid input!");
                             }
-                        } else {
-                            System.out.println("Invalid input!");
+
+                            System.out.print("Enter the Lesson ID : ");
+                            int lId = scn.nextInt();
+                            booking.bookLesson(id, lId);
+
+                            break;
                         }
-
-                        System.out.print("Enter the Lesson ID : ");
-                        int lId = scn.nextInt();
-                        booking.bookLesson(id, lId);
-
-                        break;
                     } else {
                         System.out.println("Invalid input!");
                     }
@@ -199,7 +206,8 @@ public class LessonBookingApp {
                         } else if (id > booking.getcounter()) {
                             System.out.println("ID does not exist!");
                         } else {
-                            System.out.println("\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!\n");
+                            System.out.println(
+                                    "\nID found! Welcome," + booking.getCustomer(id).getCustomerName() + "!\n");
                             break;
                         }
                     }
@@ -231,7 +239,7 @@ public class LessonBookingApp {
                     break;
                 case 4:
 
-                    //Printing out the monthly attendance and rating sheet
+                    // Printing out the monthly attendance and rating sheet
                     System.out.println("Generating report of past 4 weeks...\n");
                     for (Lessons lesson : timetable.getLessons()) {
                         if (lesson.getweek() < timetable.getCurrentWeek()) {
@@ -272,8 +280,8 @@ public class LessonBookingApp {
                         System.out.println((j + 1) + ". " + lessonTypes[j] + " - Total Income: " + Income[j]);
                     }
                     break;
-                case 0: 
-                    //Exit
+                case 0:
+                    // Exit
                     scn.close();
                     return;
                 default:
